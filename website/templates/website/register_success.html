@@ -1,0 +1,60 @@
+{% extends 'website/base.html' %}
+
+{% block title %}Registration Successful - Inter-University Tech Workshop{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow">
+                    <div class="card-header bg-success text-white text-center">
+                        <h2 class="mb-0">
+                            <i class="fas fa-check-circle me-2"></i>Registration Successful!
+                        </h2>
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="mb-4">
+                            <i class="fas fa-check-circle fa-4x text-success"></i>
+                        </div>
+                        
+                        <h3 class="mb-3">Thank you for registering!</h3>
+                        <p class="lead mb-4">
+                            Your registration for the Inter-University Tech Workshop has been received successfully.
+                        </p>
+                        
+                        <div class="alert alert-info">
+                            <h5 class="alert-heading">Registration Details:</h5>
+                            <p class="mb-2"><strong>Name:</strong> {{ registration.name }}</p>
+                            <p class="mb-2"><strong>Organization:</strong> {{ registration.organization }}</p>
+                            <p class="mb-0"><strong>Registration Date:</strong> {{ registration.registration_date|date:"F d, Y" }}</p>
+                        </div>
+                        
+                        <div class="alert alert-success">
+                            <i class="fas fa-envelope me-2"></i>
+                            A confirmation email has been sent to your registered email address.
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h5>Next Steps:</h5>
+                            <p>Complete your registration by making the workshop payment.</p>
+                            <a href="{% url 'payment' %}" class="btn btn-primary btn-lg">
+                                <i class="fas fa-credit-card me-2"></i>Make Payment Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <a href="{% url 'home' %}" class="btn btn-outline-secondary">
+                        <i class="fas fa-home me-2"></i>Back to Home
+                    </a>
+                    <a href="{% url 'schedule' %}" class="btn btn-outline-info ms-2">
+                        <i class="fas fa-calendar me-2"></i>View Schedule
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

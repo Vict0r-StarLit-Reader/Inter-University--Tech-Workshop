@@ -1,0 +1,69 @@
+{% extends 'website/base.html' %}
+
+{% block title %}Payment - Inter-University Tech Workshop{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h2 class="mb-0">
+                            <i class="fas fa-credit-card me-2"></i>Workshop Payment
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Complete your registration by making the workshop payment via MPESA.
+                        </div>
+                        
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="number" class="form-label">
+                                    <i class="fas fa-phone me-2"></i>Phone Number
+                                </label>
+                                <input type="tel" class="form-control" id="number" name="number" required 
+                                       placeholder="Enter your MPESA number (e.g., 07XXXXXXXX)"
+                                       pattern="07[0-9]{8}">
+                                <small class="text-muted">Format: 07XXXXXXXX (Safaricom number)</small>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="amount" class="form-label">
+                                    <i class="fas fa-money-bill-wave me-2"></i>Amount (KES)
+                                </label>
+                                <input type="number" class="form-control" id="amount" name="amount" required 
+                                       placeholder="Enter amount" min="1" step="1">
+                                <small class="text-muted">Workshop fee: KES 500</small>
+                            </div>
+                            
+                            <div class="alert alert-warning">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                <strong>Important:</strong> After clicking "Pay Now", you will receive an MPESA prompt on your phone to complete the payment.
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-mobile-alt me-2"></i>Pay Now
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <a href="{% url 'home' %}" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left me-2"></i>Back to Home
+                    </a>
+                    <a href="{% url 'register' %}" class="btn btn-outline-primary ms-2">
+                        <i class="fas fa-user-plus me-2"></i>Register
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

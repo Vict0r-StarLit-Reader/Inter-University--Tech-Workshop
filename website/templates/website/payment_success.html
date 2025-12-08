@@ -1,0 +1,64 @@
+{% extends 'website/base.html' %}
+
+{% block title %}Payment Initiated - Inter-University Tech Workshop{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow">
+                    <div class="card-header bg-success text-white text-center">
+                        <h2 class="mb-0">
+                            <i class="fas fa-check-circle me-2"></i>Payment Initiated Successfully!
+                        </h2>
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="mb-4">
+                            <i class="fas fa-mobile-alt fa-4x text-success"></i>
+                        </div>
+                        
+                        <h3 class="mb-3">MPESA Payment Initiated</h3>
+                        <p class="lead mb-4">
+                            Your payment has been initiated. Please check your phone for the MPESA prompt.
+                        </p>
+                        
+                        <div class="alert alert-info">
+                            <h5 class="alert-heading">Payment Details:</h5>
+                            <p class="mb-2"><strong>Phone Number:</strong> {{ number }}</p>
+                            <p class="mb-0"><strong>Amount:</strong> KES {{ amount }}</p>
+                        </div>
+                        
+                        <div class="alert alert-success">
+                            <i class="fas fa-info-circle me-2"></i>
+                            <strong>Next Steps:</strong>
+                            <ul class="mb-0 mt-2 text-start">
+                                <li>Check your phone for the MPESA prompt</li>
+                                <li>Enter your MPESA PIN to complete the payment</li>
+                                <li>Keep the payment confirmation message</li>
+                                <li>Bring the confirmation to the workshop</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h5>Need Help?</h5>
+                            <p>If you don't receive the MPESA prompt within 2 minutes, please contact us:</p>
+                            <p><i class="fas fa-phone me-2"></i> 0727902188</p>
+                            <p><i class="fas fa-envelope me-2"></i> vnjagi05@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <a href="{% url 'home' %}" class="btn btn-outline-secondary">
+                        <i class="fas fa-home me-2"></i>Back to Home
+                    </a>
+                    <a href="{% url 'schedule' %}" class="btn btn-outline-info ms-2">
+                        <i class="fas fa-calendar me-2"></i>View Schedule
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
