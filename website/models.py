@@ -16,6 +16,7 @@ class Schedule(models.Model):
     duration = models.DurationField()
     location = models.CharField(max_length=100)
     description = models.TextField()
+    speaker = models.CharField(max_length=100, blank=True)  # Added field for speaker name
     
     def __str__(self):
         return f"{self.start_time} - {self.description[:50]}"

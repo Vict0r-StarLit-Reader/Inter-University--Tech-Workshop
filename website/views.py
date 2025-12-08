@@ -3,6 +3,7 @@ from django.core.mail import send_mail
 from django.contrib import messages
 from .models import Speaker, Schedule, Registration
 from django.conf import settings
+from django_daraja.mpesa.core import MpesaClient
 
 def home(request):
     return render(request, 'website/home.html')
@@ -47,7 +48,16 @@ def register(request):
 def payment(request):
     if request.method == 'POST':
         number = request.POST.get('number')
-        amount = request.POST.get('amount')
+        amount = int(request.POST.get('amount'))
+        
+        client = MpesaClient()
+        
+        account_reference = 'Tech Workshop Registration'
+        desc = 'Payment for Tech Workshop Registration'
+        
+        callback_url = 'https://callback.com/url'
+        
+        response = client.stk_push(number,amount,account_reference,desc,callback_url)
         
         # Here you would integrate with actual payment gateway
         # For now, just show success message

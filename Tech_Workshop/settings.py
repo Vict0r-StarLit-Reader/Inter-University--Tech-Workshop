@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'website',
+    'django_daraja',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,13 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'vnjagi05@gmail.com'
 EMAIL_HOST_PASSWORD = 'your-app-password'  # Use app-specific password
 DEFAULT_FROM_EMAIL = 'vnjagi05@gmail.com'
+
+
+MPESA_ENVIRONMENT = 'sandbox'
+MPESA_CONSUMER_KEY = 'DriBFwiTAvZjq83n3je3jZlWlX1oBlG1qYbh6H6rteYyyEEs'
+MPESA_CONSUMER_SECRET = 'XrdwuZlVKXLjqzCdtwNgsBY8YUv0iOuli7F9pYqqnDvQ2AO2i3f75RCWsVFTuJxG'
+MPESA_EXPRESS_SHORTCODE = '174379'
+MPESA_PASSKEY ='bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'
+INITIATIOR_NAME = 'testapi'
+SECURITY_CREDENTIAL = 'Safaricom123!!'
+B2C_SHORTCODE = '174379'
